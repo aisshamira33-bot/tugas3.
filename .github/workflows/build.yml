@@ -1,4 +1,4 @@
-name: Build C++ EXE
+name: Build Tugas 3
 
 on:
   push:
@@ -9,23 +9,17 @@ on:
 jobs:
   build:
     runs-on: windows-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup MSYS2
-        uses: msys2/setup-msys2@v2
-        with:
-          msystem: UCRT64
-          update: true
-          install: mingw-w64-ucrt-x86_64-gcc
-
-      - name: Compile C++ to EXE
-        shell: msys2 {0}
-        run: g++ tugas_3.cpp -o tugas_3.exe -std=c++17 -static
+      - name: Compile C++
+        shell: bash
+        run: g++ tugas_3.cpp -o tugas_3.exe -static
 
       - name: Upload EXE
         uses: actions/upload-artifact@v4
         with:
-          name: tugas-3-exe
+          name: tugas_3-exe
           path: tugas_3.exe
