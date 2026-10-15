@@ -1,3 +1,4 @@
+```yaml
 name: Build C++ EXE
 
 on:
@@ -30,3 +31,4 @@ jobs:
         with:
           name: tugas-3-exe
           path: tugas_3.exe
+```
